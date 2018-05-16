@@ -1,0 +1,104 @@
+.div
+{
+	height:1500PX;
+}
+.h3
+{
+	margin-left: 260px;
+	font-family: 'Lato', sans-serif;
+	
+}
+.or
+{
+	content: 'or';
+    border-radius: 500rem;
+}
+.div_spcility
+{
+	background-color:#1784498a; border-radius:5px; padding:5px;margin-bottom:5px;
+}
+.div_doctor
+{
+	margin-left: 250px; margin-right: 50px; height:1500PX;
+}
+.select_doctor_title
+{
+	margin-bottom:15px;
+}
+.sex
+{
+	margin-top:20px;
+}
+.lable_sex
+{
+	color: #E5343D !important;
+}
+.div_sex
+{
+	margin-top: -20px;margin-left: 35px;
+}
+.male
+{
+	float: left; margin-left: 5px; margin-top:3px;
+}
+.radio_male
+{
+	float: left; margin-left: 10px;
+}
+.div_female
+{
+	margin-left: 100px;
+}
+.input_female
+{
+	
+	float: left; margin-left: 5px; margin-top:3px;
+}
+h5
+{
+	float: left; margin-top:3px; margin-left: 5px;
+}
+.div_buttons
+{
+	margin-bottom:20px;margin-left: 450px;
+}
+
+.div_or
+{
+	float:left; width:23px;height: 23px; margin-left:-2px; margin-bottom:3px;border-radius: 600rem;position: relative;background-color: #fff;font-size: 14px;padding-left:5px;padding-right: 5px; padding-top:1px; padding-bottom: 3px; font-weight: bold;
+}
+
+.div_hospital
+{
+	background-color:#1784498a; border-radius:5px; padding:5px;margin-top: 20px; margin-bottom: 30px;
+}
+.address
+{
+	margin-bottom: 15px
+}
+.th
+{
+	    font-weight: bold;
+        text-align: center;
+}
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-top-color: inherit;
+    border-right-color: inherit;
+    border-bottom-color: inherit;
+    border-left-color: inherit;
+}
+
+.search {
+	 width:250px; /* Full-width */
+    font-size: 14px; /* Increase font-size */
+    padding: 5px 5px 5px 5px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+     /* Add some space below the input */
+    margin-bottom: 20px;
+    height: 34px;
+    border-radius: 3px;
+  
+   
+}

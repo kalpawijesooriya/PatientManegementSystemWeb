@@ -1,0 +1,80 @@
+
+
+<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDj55UNRaxXD06-MkQxKa2Rc_CFzQWFCwo",
+    authDomain: "patient-management-syste-9758b.firebaseapp.com",
+    databaseURL: "https://patient-management-syste-9758b.firebaseio.com",
+    projectId: "patient-management-syste-9758b",
+    storageBucket: "patient-management-syste-9758b.appspot.com",
+    messagingSenderId: "776974370251"
+  };
+  firebase.initializeApp(config);
+
+
+
+</script>
+
+<script src="jquery-3.3.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<div class="div_doctor">
+<link rel="stylesheet" href="css/consultation.css">
+<div  class="panel panel-default" style="width: 100%px; margin-left: 20px;">
+	<div class="panel-heading">Add New consultation</div>
+	 <div class="panel-body" style="width: 800px;">
+	  <div class="row">
+	   <form role="form" >
+        <div class="col-lg-6">
+           <div class="form-group" style="margin-top: 20px" >
+        	<label >Doctor Name</label>
+        	<select class="form-control"  style="margin-top: -30px;margin-left:150px;float: left;width: 770px" id="doctor_name">
+            </select>
+           </div>
+           <p id="shedule_date" class="para"></p>
+           <div class="form-group" style="margin-top: 10px" >
+        	<label> Date</label>
+        	
+           <input type="text" id="Date" class="form-control" style="margin-top: -30px;margin-left:150px;float: left;width: 450px">
+          </div>
+          <div class="form-group" style="margin-top: 30px">
+           	<label >Select a Room</label>
+           	<div class="rooms"> 
+           	  <div onclick="setroom(1)" class="room" id="room1">1</div><div onclick="setroom(2)" class="room" id="room2">2</div><div onclick="setroom(3)" class="room" id="room3">3</div><div onclick="setroom(4)" class="room" id="room4">4</div><div onclick="setroom(5)" class="room" id="room5">5</div><div onclick="setroom(6)" class="room" id="room6">6</div><div onclick="setroom(7)" class="room" id="room7">7</div><div onclick="setroom(8)" class="room" id="room8">8</div><div onclick="setroom(9)" class="room" id="room9">9</div><div onclick="setroom(10)" class="room" id="room10">10</div>
+           	 
+           </div>
+       </div>
+           <div class="form-group" style="margin-top: 30px">
+           	<label>Select a Nurse</label>
+           	<select class="form-control"  style="margin-top: -30px;margin-left:150px;float: left;width: 770px" id="nurse" name="nurse">
+                <option>Monday</option>
+                <option>Tuesday</option>
+                <option>Wednesday</option>
+                <option>Thursday</option>
+                <option>Friday</option> 
+                <option>Saturday</option>
+                <option>Sunday</option>                                
+            </select>
+           </div>
+           <div class="div_buttons" style="margin-top: 30px;margin-left:42%">
+              <input type="button" value="Save"  onMouseOver="this.style.backgroundColor='#1784498a'" onMouseOut="this.style.backgroundColor='#178449'" class="btn btn-default" style="float:left; color: #fff" onclick="add_consultation()"></input>
+               <div class="div_or">or</div>
+               <button type="reset" class="btn btn-default" style="background-color: #E0E1E2;">Reset</button>
+        </div>
+
+        </div>
+
+       
+       </form>
+      </div>
+     </div>
+    </div>
+</div>
+
+</div>
+
+ <script src="js/consultation.js"></script>
+ 
+

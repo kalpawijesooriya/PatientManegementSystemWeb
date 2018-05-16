@@ -1,0 +1,76 @@
+<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDj55UNRaxXD06-MkQxKa2Rc_CFzQWFCwo",
+    authDomain: "patient-management-syste-9758b.firebaseapp.com",
+    databaseURL: "https://patient-management-syste-9758b.firebaseio.com",
+    projectId: "patient-management-syste-9758b",
+    storageBucket: "patient-management-syste-9758b.appspot.com",
+    messagingSenderId: "776974370251"
+  };
+  firebase.initializeApp(config);
+
+
+
+</script>
+<div class="div_doctor">
+	 <link rel="stylesheet" href="css/schedule.css">
+ <div  class="panel panel-default" style="width: 100%px; margin-left: 20px;">
+	 <div class="panel-heading">Add New Schedule</div>
+	 <div class="panel-body" style="width: 800px;">
+	  <div class="row">
+	   <form role="form" >
+        <div class="col-lg-6">
+        	<div class="form-group" style="margin-top: 20px" >
+        	<label >Doctor Name</label>
+        	<select class="form-control"  style="margin-top: -30px;margin-left:150px;float: left;width: 770px" id="doctor_name">
+                                                 
+            </select>
+            </div>
+            <div class="form-group" style="margin-top: 30px" >
+        	<label >Available Days</label>
+        	<select class="form-control"  style="margin-top: -30px;margin-left:150px;float: left;width: 770px" id="day">
+                <option>Monday</option>
+                <option>Tuesday</option>
+                <option>Wednesday</option>
+                <option>Thursday</option>
+                <option>Friday</option> 
+                <option>Saturday</option>
+                <option>Sunday</option>                                
+            </select>
+            </div>
+            <div class="form-group" style="margin-top: 30px">
+              <label>Available Time</label>
+              <input type="text" name="name" value="" placeholder="Start Time" data-timepicker class="form-control"  style="margin-top: -30px;margin-left:150px;float: left;" id="startTime">
+              <input type="text" name="name" value="" placeholder="EndTime" data-timepicker class="form-control"  style="margin-top: -45px;margin-left:550px;float: left;" id="endTime">
+            </div>
+            <div class="form-group" style="margin-top: 30px">
+              <label>Amount of Patient</label>
+              <input type="number" value="10" name="number" placeholder="10" class="form-control" style="margin-top:-30px;margin-left:150px;float: left;width: 770px" id="patientNumber">
+              
+           </div>
+          
+            
+           </div>
+          
+        </div> 
+        	<div class="div_buttons" style="margin-top: 20px;margin-left:20%">
+              <input type="button" value="Save"  onMouseOver="this.style.backgroundColor='#1784498a'" onMouseOut="this.style.backgroundColor='#178449'" class="btn btn-default" style="float:left; color: #fff" onclick="add_schedule()"></input>
+               <div class="div_or">or</div>
+               <button type="reset" class="btn btn-default" style="background-color: #E0E1E2;">Reset</button>
+           </div>
+       </form>
+      </div> 
+    </div>
+    </div> 	
+</div>	 
+
+</div>
+ <script src="//code.jquery.com/jquery-1.12.1.min.js"></script>
+     <!-- time picker for make schedule -->
+ <script src="js/timepicker.js"></script>
+ <script src="js/schedule.js"></script>
+ 
+

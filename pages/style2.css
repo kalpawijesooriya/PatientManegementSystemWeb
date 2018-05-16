@@ -1,0 +1,27 @@
+/* Downloaded from http://codingstudents.info/ */
+/* The integration stylesheet that coincides with the integration script can be found at https://cdn.datatables.net/plug-ins/28e7751dbec/integration/bootstrap/3/dataTables.bootstrap.css
+*/
+body {
+  background-color: #f4f6fa;
+}
+header {
+  font-family: "Lato";
+  color: #AFAFAF;
+  background-color: #F2F2F2;
+  padding: 7px 14px 14px 14px;
+  border-bottom: 2px solid rgba(151, 165, 186, 0.15);
+}
+header h1 {
+  font-weight: 300;
+  font-size: 24px;
+}
+header p {
+  color: #c9c9c9;
+}
+table {
+  font-family: "Source Sans Pro";
+}
+#ex-datatables-basic_wrapper {
+  padding: 20px;
+  background-color: #FFFFFF;
+}
