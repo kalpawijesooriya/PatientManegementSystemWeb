@@ -458,6 +458,10 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                          <li>
+                            <a onMouseOver="this.style.backgroundColor='#989FA7'" onMouseOut="this.style.backgroundColor='#5A6978'" href="login.php?reports" style="color: #fff;" ><i class="    glyphicon glyphicon-list" style="font-size:18px" ></i> Reports</a>
+                           
+                        </li>
                     </ul>
                 </div>
                <!-- /.sidebar-collapse -->
@@ -500,6 +504,11 @@
     if(isset($_GET['Schedule_List']))
     {   
          include 'bodyright/Schedule_List.html';
+
+    }
+     if(isset($_GET['reports']))
+    {   
+         include 'bodyright/reports.html';
 
     }
     if(isset($_GET['add_consultation']))
@@ -552,7 +561,7 @@
     <script src="../dist/js/sb-admin-2.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
 
-<script type="text/javascript" src="bodyright/doctor.js"></script>
+<script type="text/javascript" src="js/doctor.js"></script>
     
 <script>
   // Initialize Firebase

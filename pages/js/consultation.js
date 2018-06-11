@@ -44,7 +44,7 @@ $('#doctor_name').change(function()
     });
  });
 
-shedule_ref.orderByChild('DoctorID').equalTo(keys).on("value", function(snapshot) {
+   shedule_ref.orderByChild('DoctorID').equalTo(keys).on("value", function(snapshot) {
    console.log(snapshot.val());
    if(snapshot.val()==null){
       document.getElementById("shedule_date").innerHTML = "This doctor has no sheduls"; 
@@ -74,6 +74,10 @@ shedule_ref.orderByChild('DoctorID').equalTo(keys).on("value", function(snapshot
       if(days!=null){
        	document.getElementById("shedule_date").innerHTML =days+" "+time ;
 
+      }
+     if(days==null)
+      {
+         document.getElementById("shedule_date").innerHTML = "This doctor has no sheduls"; 
       }
 
     });
