@@ -1,7 +1,4 @@
 <script type="text/javascript" src="js/doctor.js"></script>
-<div class="div">
-  
-
    <div  class="div_doctor">
 
                 <div class="col-lg-12">
@@ -168,7 +165,7 @@
                                                   $('#sessionNo').intlTelInput({ initialCountry: "auto",
                                                    geoIpLookup: function(callback){
                                                    $.get('http://ipinfo.io', function(){}, "jsonp").always(function(resp){
-                                                   var countryCode = (resp && resp.country) ? resp.country : "";
+                                                   var countryCode = (resp && resp.country) ? resp.country : "LK";
                                                    callback(countryCode);
                                                      });
                                                       },
@@ -283,6 +280,6 @@
                     <!-- /.panel -->
                 </div>
                 <!-- /.col-lg-12 -->
-            </div>
+            
 <div>  
  
