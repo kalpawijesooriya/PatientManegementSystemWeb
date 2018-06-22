@@ -15,7 +15,7 @@
     <meta name="author" content="">
 
 
-
+    <link rel="stylesheet" href="bodyright/common.css"> 
 
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap Core CSS -->
@@ -372,12 +372,12 @@
                                     <a  onMouseOver="this.style.backgroundColor='#989FA7'" onMouseOut="this.style.backgroundColor='#5A6978'" href="login.php?Add_Patient">Add Patient</a>
                                 </li>
                                 <li>
-                                    <a onMouseOver="this.style.backgroundColor='#989FA7'" onMouseOut="this.style.backgroundColor='#5A6978'" href="patient_list.html">Patient List</a>
+                                    <a onMouseOver="this.style.backgroundColor='#989FA7'" onMouseOut="this.style.backgroundColor='#5A6978'" href="login.php?patientlist">Patient List</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a onMouseOver="this.style.backgroundColor='#989FA7'" onMouseOut="this.style.backgroundColor='#5A6978'" href="patient.html" style="color: #fff;"><i class="glyphicon glyphicon-user" style="font-size:18px"></i> Employee</a>
+                            <a onMouseOver="this.style.backgroundColor='#989FA7'" onMouseOut="this.style.backgroundColor='#5A6978'" style="color: #fff;"><i class="glyphicon glyphicon-user" style="font-size:18px"></i> Employee</a>
                         </li>
                         <li>
                             <a onMouseOver="this.style.backgroundColor='#989FA7'" onMouseOut="this.style.backgroundColor='#5A6978'" style="color: #fff;" ><i class="glyphicon glyphicon-calendar" style="font-size:18px" ></i> Schedule<span class="fa arrow"></span></a>
@@ -525,6 +525,11 @@
      if(isset($_GET['Add_Patient']))
     {   
          include 'bodyright/addPatient.html';
+
+    }
+      if(isset($_GET['patientlist']))
+    {   
+         include 'bodyright/patientList.html';
 
     }
     ?> 

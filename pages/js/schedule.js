@@ -21,7 +21,7 @@ function  add_schedule()
   
   var fname = doctor_name.split(" ", 1);
   var laname = doctor_name.split(" ", 2);
-console.log("fname is :"+fname);
+    console.log("fname is :"+fname);
   
   var ref = firebase.database().ref('User/doctor/');
  
@@ -30,6 +30,7 @@ console.log("fname is :"+fname);
    console.log(snapshot.val());
     doctorkey1= snapshot.val();
     snapshot.forEach(function(data) {
+
   
       scheduleRef.child("DoctorID").set(data.key);
  
@@ -43,7 +44,7 @@ console.log("fname is :"+fname);
   scheduleRef.child("EndTime").set(endTime);
   scheduleRef.child("patientNumber").set(endTime);
   
-
+alert("New Shedule Added")
 }
 
 

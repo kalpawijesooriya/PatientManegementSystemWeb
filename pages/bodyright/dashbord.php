@@ -107,7 +107,7 @@ today = mm + '/' + dd + '/' + yyyy;
   
 
     
-$('#selectDoctor').change(function()
+$('#selectDoctor').click(function()
 { 
 
   var val= $(this).val();

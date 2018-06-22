@@ -86,9 +86,8 @@ function register_doctor()
   }
  
   
-
-
-  firebaseRef.child("DoctorID").set(ref);
+  if (confirm('Do you want to add Dr. '+ fname+" "+lname+" as a Doctor")) {
+    firebaseRef.child("DoctorID").set(ref);
   firebaseRef.child("Title").set(title);
   firebaseRef.child("Firstname").set(fname);
   firebaseRef.child("Lastname").set(lname);
@@ -107,6 +106,11 @@ function register_doctor()
   firebaseRef.child("Emargency_reletionship ").set(Emarrelation);
   firebaseRef.child("Emargency_TP").set(Emartp);
 
+} else {
+    // Do nothing!
+}
+
+ 
 
 
  

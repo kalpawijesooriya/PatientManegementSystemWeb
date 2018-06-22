@@ -13,6 +13,7 @@
 	if(!isset($_GET['add_consultation'])){
 	if(!isset($_GET['Add_Patient'])){
 	if(!isset($_GET['reports'])){
+	if(!isset($_GET['patientlist'])){
 ?>
 	<div id="bodyright" style="background-color: #fff ;" >
 		<?php
@@ -34,4 +35,4 @@
 
 	 ?>
 	</div>
-<?php } } }}}}}}}}}} ?>
+<?php } } }}}}}}}}}}} ?>

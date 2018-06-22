@@ -87,7 +87,7 @@
                                                   $('#sessionNo').intlTelInput({ initialCountry: "auto",
                                                    geoIpLookup: function(callback){
                                                    $.get('http://ipinfo.io', function(){}, "jsonp").always(function(resp){
-                                                   var countryCode = (resp && resp.country) ? resp.country : "";
+                                                   var countryCode = (resp && resp.country) ? resp.country : "LK";
                                                    callback(countryCode);
                                                      });
                                                       },
@@ -118,7 +118,7 @@
                                                   $('#PhoneNo').intlTelInput({ initialCountry: "auto",
                                                    geoIpLookup: function(callback){
                                                    $.get('http://ipinfo.io', function(){}, "jsonp").always(function(resp){
-                                                   var countryCode = (resp && resp.country) ? resp.country : "";
+                                                   var countryCode = (resp && resp.country) ? resp.country : "LK";
                                                    callback(countryCode);
                                                      });
                                                       },
