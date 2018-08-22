@@ -1,17 +1,27 @@
 <div class="div_doctor" style="background-color: #f1f3f6" >
 <link rel="stylesheet" type="text/css" href="css/reports.css">	
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.17/css/jquery.dataTables.min.css">  
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css">  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <div class="col-sm-12">
         <div class="panel panel-default">
             <div class="panel-body"> 
             <div>
                 <h4 class="title">
-                <i class="fa fa-paste"></i> Patient History</h4>
-            </div>        
-                <form class="form-inline">
+                <i class="fa fa-wheelchair" style="font-size:23px; margin-right:10px;"></i> Patient Based Reports</h4>
+            </div> 
+            <div class="appAmount">
+              <div >
+                <h5 class="title">
+                <i class="glyphicon glyphicon-list-alt" style="font-size:18px; margin-right:10px;"></i> Appointment Details Report</h5>
+
+
+              </div> 
+               <hr>
+               
+
+                  <form class="form-inline">
 
                     <div class="form-group">
+
                         <select name="report_option" class="form-control select2-hidden-accessible" id="ReportOption" tabindex="-1" aria-hidden="true" )">
                             <option value="All">All</option>
                             <option value="PatientWise">Patient Wise</option>
@@ -19,65 +29,55 @@
  
                     </div>   
 
-                    <div class="form-group" id="PatientWise">
-                        <label class="sr-only" for="patient_id">Patient ID</label>
-                        <input type="text" name="patient_id" class="form-control" style="display:none" id="patient_id" placeholder="Patient ID" value="">
+                    <div class="form-group" id="Patient">
+                        <label  for="patient_id" id="label_patient">Patient ID</label>
+                        <input type="text" name="patient_id" class="form-control" id="patient_id" style="display: none;" placeholder="Patient ID" value="">
                     </div>
 
                     <div class="form-group">
-                        <label class="sr-only" for="start_date">Start Date</label>
-                        <input type="text" name="start_date" class="form-control datepicker hasDatepicker" id="start_date" placeholder="Start Date" value="11-06-2018">
+                        <label  for="start_date">Start Date</label>
+                        <input type="date" name="start_date" class="form-control datepicker hasDatepicker" id="start_date" placeholder="Start Date" value="11-06-2018">
                     </div> 
 
                     <div class="form-group">
-                        <label class="sr-only" for="end_date">End Date</label>
-                        <input type="text" name="end_date" class="form-control datepicker hasDatepicker" id="end_date" placeholder="End Date" value="11-06-2018">
+                        <label  for="end_date">End Date</label>
+                        <input type="date" name="end_date" class="form-control datepicker hasDatepicker" id="end_date" placeholder="End Date" value="11-06-2018">
                     </div>  
-                  <div class="btn-group btn-group-sm" style="margin-left:20px">
-                    <button type="button" class="btn btn-primary">Copy</button>
-                    <button type="button" class="btn btn-primary">CSV</button>
-                    <button type="button" class="btn btn-primary" id="cmd">PDF</button>
-                  </div>
+                 
 
                 </form>
+
+                 <div class="btn-group btn-group-sm" id="buttons">
+                    <button type="button" class="btn btn-primary">Copy</button>
+                    <button type="button" class="btn btn-primary">CSV</button>
+                    <button type="button" class="btn btn-primary" id="patientListPdf" onclick="demoFromHTML()">PDF</button>
+                  </div>
+              </div></br>  
+                
               
             </div>
         </div>
     </div>
-    <div  id="content" >
+
+    <div id="patient_list" style="display:none;">
+        <h4 id="hedding"></h4>
         <table class="table table-striped table-bordered table-hover" id="example">
     <thead>
       <tr>
-        <td  class="th">Title</td>
-        <td  class="th">First Name</td>
-        <td  class="th">Last Name</td>
-        <td  class="th">Hospital</td>
-        <td  class="th">Spciality</td>
-        <td  class="th">Doctor Fee</td>
-        <td  class="th">Mobile Number</td>
-        <td  class="th">Address</td> 
-     
+       
+        <td  class="th">PatientID</td>
+        <td  class="th">Amount of Appointments</td>
+    
       </tr>
     </thead>
    
   </table>
   
     </div>
- 
 
-<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
-<script type="text/javascript" src="js/jspdf.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js"></script>
 
+  <script type="text/javascript" src="js/reports.js"></script>
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.17/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.flash.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
-<script type="text/javascript" src="js/reports.js"></script>
-
-</div>

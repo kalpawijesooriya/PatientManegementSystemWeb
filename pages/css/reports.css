@@ -1,0 +1,44 @@
+.appAmount
+{
+	
+	width: 350px;
+	height: 400px;
+	background-color:#f0ad4e;
+	padding: 10px;
+	border-width: 20px: 
+	border: solid; 
+	border-radius: 5px;
+}
+hr
+{
+
+	margin-top:10px;
+	width: 250px;
+
+}
+h5
+{
+	color:#011e37;
+}
+
+#end_date
+{
+	margin-left: 5px;
+}
+#patient_id
+{
+	margin-left: 69px;margin-top: -33px;
+}
+
+#ReportOption
+{
+	margin-left: 100px;margin-bottom: 20px; 
+}
+#labelreport
+{
+	margin-top: -40px;color: #06c55e;
+}
+#buttons
+{
+	margin-left: 95px;margin-top: 30px
+}

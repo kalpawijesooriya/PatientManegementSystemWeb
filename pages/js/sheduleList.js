@@ -11,7 +11,8 @@
   firebase.initializeApp(config);
 
 
- var rootRef = firebase.database().ref("User/patient");
+ var rootRef = firebase.database().ref("schedule");
+
   //var t = $('#example').DataTable();
  var t = $('#example').DataTable( {
        
@@ -20,29 +21,22 @@
             'copy', 'csv', 'excel', 'pdf', 'print'
         ]
     } );
+
+  
   rootRef.on("child_added",snap =>{
-  var fname=snap.child("FirstName").val();
-  var lname=snap.child("LastName").val();
-  var id=snap.child("DoctorID").val();
-  var dob=snap.child("DOB").val();
-  var address=snap.child("Address").val();
-  var email=snap.child("E-mail").val();
-  var mobile=snap.child("PhoneNo").val();
-  var hometp=snap.child("Home_no").val();
-  var sex=snap.child("Sex").val();
-  var slmcno=snap.child("SLMC_Number").val();
-  var Email=snap.child("Email").val();
-  var emargancyperson=snap.child("Emargency_person").val();
-  var emargancyrelationship=snap.child("Emargency_reletionship").val();
-  var emargancymobile=snap.child("Emargency_TP").val();
-  var numOfAppointments=snap.child("AppointmentCount").val();
-  var nic=snap.child("NICNo").val();
-  var title=snap.child("Title").val();
+  var day=snap.child("Day").val();
+  var startTime=snap.child("StartTime").val();
+  var endTime=snap.child("EndTime").val();
+  var noOfPatients=snap.child("patientNumber").val();
+  var doctorID=snap.child("DoctorID").val();
+  var doctorName="kkkk";
 
-
-
-//$('#example').append("<tr><td>"+title+"</td><td>"+fname+"</td><td>"+lname+"</td><td>"+hospital+"</td><td>"+speciality+"</td><td>"+"Rs."+fee+".00"+"</td><td>"+mobile+"</td><td>"+address+"</td></tr>");
-settable(title,fname,lname,Email,numOfAppointments,mobile,address);
+var rootRefDoc = firebase.database().ref().child("User").child("doctor").child(doctorID);
+rootRefDoc.on('value',function(snapshot) {
+    doctorName = snapshot.val().Firstname +" " +snapshot.val().Lastname;
+    settable(day,startTime,endTime,noOfPatients,doctorName);
+   
+  });
  });
 
 
@@ -52,16 +46,14 @@ settable(title,fname,lname,Email,numOfAppointments,mobile,address);
 
  
     // Automatically add a first row of data
-function settable(title,fname,lname,Email,numOfAppointments,mobile,address)
+function settable(day,startTime,endTime,noOfPatients,doctorName)
 {
         t.row.add( [
-            title,
-            fname,
-            lname,
-            Email,
-            numOfAppointments,
-            mobile,
-            address
+            doctorName,
+            day,
+            startTime,
+            endTime,
+            noOfPatients    
         ] ).draw( false );
       
 

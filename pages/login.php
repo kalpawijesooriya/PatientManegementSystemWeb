@@ -2,6 +2,7 @@
 <html>
     <head>
     <title>Login</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/hospitals.png" />
         <link rel="stylesheet" type="text/css" href="../css/stylelogin.css">
         <link rel="stylesheet" type="text/css" href="../css/styledoctorlist.css">
         <link rel="stylesheet" type="text/css" href="../vendor/font-awesome/css/font-awesome.min.css"">
@@ -117,19 +118,13 @@
 
          <div id="user_div">
 
-
-
             <div  style="background-color: #fff">
             <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header" >
                     <img src="../img/hospital.jpg" style="width: 150px" style="height: 100px" style="float:right">
-                    <a class="navbar-brand" >Viweka Hospital</a>
-               
+                    <a class="navbar-brand" >Viweka Hospital</a>     
                 </div>
 
-           
-             
-           
            
             <ul class="nav navbar-top-links navbar-right" >
 
@@ -377,7 +372,15 @@
                             </ul>
                         </li>
                         <li>
-                            <a onMouseOver="this.style.backgroundColor='#989FA7'" onMouseOut="this.style.backgroundColor='#5A6978'" style="color: #fff;"><i class="glyphicon glyphicon-user" style="font-size:18px"></i> Employee</a>
+                            <a onMouseOver="this.style.backgroundColor='#989FA7'" onMouseOut="this.style.backgroundColor='#5A6978'" style="color: #fff;"><i class="glyphicon glyphicon-user" style="font-size:18px"></i> Employee<span class="fa arrow"></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a  onMouseOver="this.style.backgroundColor='#989FA7'" onMouseOut="this.style.backgroundColor='#5A6978'" href="login.php?Add_Employee">Add Employee</a>
+                                </li>
+                                <li>
+                                    <a onMouseOver="this.style.backgroundColor='#989FA7'" onMouseOut="this.style.backgroundColor='#5A6978'" href="login.php?Employeelist">Employee List</a>
+                                </li> 
+                            </ul>
                         </li>
                         <li>
                             <a onMouseOver="this.style.backgroundColor='#989FA7'" onMouseOut="this.style.backgroundColor='#5A6978'" style="color: #fff;" ><i class="glyphicon glyphicon-calendar" style="font-size:18px" ></i> Schedule<span class="fa arrow"></span></a>
@@ -532,9 +535,19 @@
          include 'bodyright/patientList.html';
 
     }
+     if(isset($_GET['Add_Employee']))
+    {   
+         include 'bodyright/addEmployee.html';
+
+    }
+     if(isset($_GET['Employeelist']))
+    {   
+         include 'bodyright/Employeelist.html';
+
+    }
     ?> 
             <!-- /.navbar-static-side -->
-        
+      
    <div>
     <?php
         include 'bodyright.php';

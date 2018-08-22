@@ -42,7 +42,7 @@ function  add_schedule()
   scheduleRef.child("Day").set(day);
   scheduleRef.child("StartTime").set(startTime);
   scheduleRef.child("EndTime").set(endTime);
-  scheduleRef.child("patientNumber").set(endTime);
+  scheduleRef.child("patientNumber").set(patientNumber);
   
 alert("New Shedule Added")
 }

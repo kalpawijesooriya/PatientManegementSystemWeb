@@ -14,6 +14,8 @@
 	if(!isset($_GET['Add_Patient'])){
 	if(!isset($_GET['reports'])){
 	if(!isset($_GET['patientlist'])){
+	if(!isset($_GET['Employeelist'])){
+	if(!isset($_GET['Add_Employee'])){
 ?>
 	<div id="bodyright" style="background-color: #fff ;" >
 		<?php
@@ -35,4 +37,4 @@
 
 	 ?>
 	</div>
-<?php } } }}}}}}}}}}} ?>
+<?php } } }}}}}}}}}}}}} ?>
