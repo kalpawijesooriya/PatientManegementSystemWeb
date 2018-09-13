@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 'use strict';
-
+var patient="G6bcdaC6ZabQIadQpvheH9SnMwA2";
 // Initializes FriendlyChat.
-function FriendlyChat() {
-  this.checkSetup();
+function FriendlyChat(patient) {
 
+  patient =this.patient
   // Shortcuts to DOM Elements.
   this.messageList = document.getElementById('messages');
   this.messageForm = document.getElementById('message-form');
@@ -29,7 +29,7 @@ function FriendlyChat() {
   this.mediaCapture = document.getElementById('mediaCapture');
   this.userPic = document.getElementById('user-pic');
   this.userName = document.getElementById('user-name');
- 
+  
   this.signOutButton = document.getElementById('sign-out');
   this.signInSnackbar = document.getElementById('must-signin-snackbar');
 
@@ -37,11 +37,12 @@ function FriendlyChat() {
   this.messageForm.addEventListener('submit', this.saveMessage.bind(this));
   this.signOutButton.addEventListener('click', this.signOut.bind(this));
  
-
+  $( "#messages" ).empty();
   // Toggle for the button.
   var buttonTogglingHandler = this.toggleButton.bind(this);
   this.messageInput.addEventListener('keyup', buttonTogglingHandler);
   this.messageInput.addEventListener('change', buttonTogglingHandler);
+  
 
   // Events for image upload.
   this.submitImageButton.addEventListener('click', function() {
@@ -58,15 +59,16 @@ FriendlyChat.prototype.initFirebase = function() {
   this.auth = firebase.auth();
   this.database = firebase.database();
   this.storage = firebase.storage();
+ 
   // Initiates Firebase auth and listen to auth state changes.
   this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));
 };
 
 // Loads chat messages history and listens for upcoming ones.
-FriendlyChat.prototype.loadMessages = function() {
+FriendlyChat.prototype.loadMessages = function( patient) {
 
    var currentUser="employee01";
-   var chatuser="G6bcdaC6ZabQIadQpvheH9SnMwA2";
+   var chatuser= patient;
    var hospital_messages = firebase.database().ref('messages/'+currentUser+"/"+chatuser);
    var patient_messages = firebase.database().ref('messages/'+chatuser+"/"+currentUser);
     
@@ -91,7 +93,7 @@ FriendlyChat.prototype.saveMessage = function(e) {
   if (this.messageInput.value && this.checkSignedInWithMessage()) {
    // var currentUser = this.auth.currentUser;
     var currentUser="employee01";
-   var chatuser="G6bcdaC6ZabQIadQpvheH9SnMwA2";
+   var chatuser=patient;
     // Add a new message entry to the Firebase Database.
  var push_id = firebase.database().ref().child('messages').child(currentUser).child(chatuser).push().key;
      this.messagesRef.child(push_id).set({
@@ -209,9 +211,9 @@ FriendlyChat.prototype.onAuthStateChanged = function(user) {
 
     // Hide sign-in button.
    
-
+    
     // We load currently existing chant messages.
-    this.loadMessages();
+    this.loadMessages(patient);
   } else { // User is signed out!
     // Hide user's profile and sign-out button.
     this.userName.setAttribute('hidden', 'true');
@@ -248,7 +250,7 @@ FriendlyChat.resetMaterialTextfield = function(element) {
 // Template for messages.
 FriendlyChat.MESSAGE_TEMPLATE =
     '<div class="message-container">' +
-      '<div class="spacing"><div class="pic"></div></div>' +
+      '<div class="spacing"><div class="pic" id="pic"></div></div>' +
       '<div class="message"></div>' +
       '<div class="name"></div>' +
     '</div>';
@@ -292,10 +294,21 @@ FriendlyChat.prototype.displayMessage = function(key, name, text, picUrl, imageU
   this.messageList.scrollTop = this.messageList.scrollHeight;
   this.messageInput.focus();
   if(name=="employee01"){
-    document.getElementById(key).style.backgroundColor = '#178449'; 
-    document.getElementById(key).style.color = '#fff'; 
-    document.getElementById(key).style.marginLeft="90px"; 
+    document.getElementById(key).style.backgroundColor = '#f5f5f5'; 
+    document.getElementById(key).style.color = '#435f7a'; 
+	document.getElementById(key).style.marginLeft="100px"; 
+	document.getElementById(key).style.marginRight="20px"; 
+	document.getElementById(key).style.borderRadius = '20px'; 
   }
+  else{
+    document.getElementById(key).style.backgroundColor = '#435f7a'; 
+	document.getElementById(key).style.color = '#f5f5f5'; 
+	document.getElementById(key).style.width = '350px'; 
+	document.getElementById(key).style.borderRadius = '20px'; 
+	
+  }
+    
+
  
 };
 
@@ -325,5 +338,9 @@ FriendlyChat.prototype.checkSetup = function() {
 };
 
 window.onload = function() {
-  window.friendlyChat = new FriendlyChat();
+  window.friendlyChat = new FriendlyChat(patient);
 };
+function reload(patientID) {
+patient=patientID
+	window.friendlyChat = new FriendlyChat(patientID);
+  };

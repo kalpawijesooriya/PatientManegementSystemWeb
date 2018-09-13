@@ -1,6 +1,6 @@
 //deifle firebase
 
- var config = {
+var config = {
     apiKey: "AIzaSyDj55UNRaxXD06-MkQxKa2Rc_CFzQWFCwo",
     authDomain: "patient-management-syste-9758b.firebaseapp.com",
     databaseURL: "https://patient-management-syste-9758b.firebaseio.com",
@@ -11,8 +11,7 @@
   firebase.initializeApp(config);
 
 
- var rootRef = firebase.database().ref("schedule");
-
+ var rootRef = firebase.database().ref("consultation");
   //var t = $('#example').DataTable();
  var t = $('#example').DataTable( {
        
@@ -21,22 +20,20 @@
             'copy', 'csv', 'excel', 'pdf', 'print'
         ]
     } );
-
-  
   rootRef.on("child_added",snap =>{
-  var day=snap.child("Day").val();
-  var startTime=snap.child("StartTime").val();
-  var endTime=snap.child("EndTime").val();
-  var noOfPatients=snap.child("patientNumber").val();
+  var date=snap.child("Date").val();
+  var appointmentNumbers=snap.child("LastAppoimentNo").val();
+  var nurse=snap.child("Nurse").val();
+  var room=snap.child("Room").val();
+  var sheduleID=snap.child("ScheduleID").val();
   var doctorID=snap.child("DoctorID").val();
-  var doctorName="kkkk";
-
-var rootRefDoc = firebase.database().ref().child("User").child("doctor").child(doctorID);
-rootRefDoc.on('value',function(snapshot) {
-    doctorName = snapshot.val().Firstname +" " +snapshot.val().Lastname;
-    settable(day,startTime,endTime,noOfPatients,doctorName);
-   
+  var doctorRef = firebase.database().ref("User/doctor/"+doctorID);
+  doctorRef.on('value',function(snapshot) { 
+    var doctorName=snapshot.child("Firstname").val()+" " +snapshot.child("Lastname").val();
+    settable( sheduleID,doctorName, date,appointmentNumbers, nurse, room);  
   });
+  
+
  });
 
 
@@ -46,15 +43,16 @@ rootRefDoc.on('value',function(snapshot) {
 
  
     // Automatically add a first row of data
-function settable(day,startTime,endTime,noOfPatients,doctorName)
+function settable(sheduleID,doctorName, date,appointmentNumbers, nurse, room)
 {
         t.row.add( [
+            sheduleID,
             doctorName,
-            day,
-            startTime,
-            endTime,
-            noOfPatients,
-             
+            date,
+            appointmentNumbers,
+            nurse,
+            room
+            
         ] ).draw( false );
       
 

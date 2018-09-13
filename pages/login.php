@@ -119,8 +119,9 @@
          <div id="user_div">
 
             <div  style="background-color: #fff">
-            <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-                <div class="navbar-header" >
+                
+            <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; ">
+                <div class="navbar-header" style="margin-left:260px" >
                     <img src="../img/hospital.jpg" style="width: 150px" style="height: 100px" style="float:right">
                     <a class="navbar-brand" >Viweka Hospital</a>     
                 </div>
@@ -160,7 +161,8 @@
                         <li>
                             <a href="#">
                                 <div>
-                                    <strong>John Smith</strong>
+                                    <strong>John Smith</strong>         
+                                  
                                     <span class="pull-right text-muted">
                                         <em>Yesterday</em>
                                     </span>
@@ -337,9 +339,9 @@
             </ul>
             <!-- /.navbar-top-links -->
 
-            <div style ="margin-top:113px" class="navbar-default sidebar"  role="navigation" style="height: 100%">
+            <div class="navbar-default sidebar" style="margin-top:-4px; position:fixed;" role="navigation" style="height: 100%">
                 <div style="background-color:#178449" style="height:200px" >
-            <img src="../img/logo.png" style="width: 250px" style="height:1500px" style="float: left;" >
+            <img src="../img/logo.png" style="width: 250px;height:117px;" >
            </div>
                 <div class="sidebar-nav navbar-collapse"  padding-left: 60;>
                     <ul class="nav" id="side-menu">
@@ -471,6 +473,7 @@
                
             </div>
             </nav>
+           
             <?php 
         if(isset($_GET['dash_bord']))
     {

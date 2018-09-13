@@ -15,7 +15,7 @@
  */
 
 html, body {
-  font-family: 'Roboto', 'Helvetica', sans-serif;
+  font-family: "proxima-nova", "Source Sans Pro", sans-serif;
 }
 main, #messages-card {
   height: 100%;
@@ -40,9 +40,17 @@ main, #messages-card {
   font-size: 36px;
   position: relative;
 }
-#bloc1, #bloc2
+#bloc1
 {
-    display:inline;
+   left: 0;
+  
+}
+#bloc2
+{
+margin-left:50%;
+right: 0;
+
+
 }
 #block_container
 {
@@ -53,9 +61,9 @@ main, #messages-card {
   margin: 0 auto;
 }
 .mdl-card__supporting-text {
-  width: auto;
+  width: 415px;
   height: 100%;
-  padding-top: 0;
+  margin-left: -15px
 }
 #messages {
   overflow-y: auto;
@@ -64,6 +72,9 @@ main, #messages-card {
   flex: 1 1 auto;
   flex-direction: column;
   display: flex;
+  font-family: "proxima-nova", "Source Sans Pro", sans-serif;
+  border-radius: 20px;
+   
 }
 #message-filler {
   flex-grow: 1;
@@ -221,6 +232,7 @@ main, #messages-card {
 }
 .mdl-textfield__label:after {
   background-color: #0288D1;
+  margin-left: 15px;
 }
 .mdl-textfield--floating-label.is-focused .mdl-textfield__label {
   color: #0288D1;
@@ -228,4 +240,36 @@ main, #messages-card {
 .mdl-button .material-icons {
   top: -1px;
   margin-right: 5px;
+}
+.split {
+  height: 100%;
+  width: 50%;
+
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  background-color: #111;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+  background-color: red;
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+ 
+}
+
+/* Style the image inside the centered container, if needed */
+.centered img {
+  width: 150px;
+  border-radius: 50%;
 }

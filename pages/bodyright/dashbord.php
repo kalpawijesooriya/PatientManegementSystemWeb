@@ -73,9 +73,11 @@
 </div>
   
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>    
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script><script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript" src="js/dashbord.js"></script><script type="text/javascript">
+<script type="text/javascript" src="js/dashbord.js"></script>
+<script type="text/javascript">
 
 
     google.charts.load("current", {packages:['corechart']});
