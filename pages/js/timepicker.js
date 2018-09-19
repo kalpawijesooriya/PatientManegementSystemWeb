@@ -21,13 +21,30 @@
         e.preventDefault();
         var num=document.getElementById("endTime").value
         var num2=document.getElementById("startTime").value  
-        if (num==1||num2==1) {$(this).val(inputValue + String.fromCharCode(e.keyCode) + ':');}
-        else{if( e.keyCode > 50 ){
-          $(this).val(inputValue + '3:');
-        }
-        else{
+        if (num==1||num2==1) 
+        {
           $(this).val(inputValue + String.fromCharCode(e.keyCode) + ':');
-        }}
+        }
+        else if(num==0||num2==0)
+        {
+          if( e.keyCode > 57 )
+          {
+          $(this).val(inputValue + '9:');
+          }
+          else{
+          $(this).val(inputValue + String.fromCharCode(e.keyCode) + ':');
+          }
+        }
+        else
+        {
+          if( e.keyCode > 50 )
+          {
+          $(this).val(inputValue + '3:');
+          }
+          else{
+          $(this).val(inputValue + String.fromCharCode(e.keyCode) + ':');
+          }
+        }
         
       }
 

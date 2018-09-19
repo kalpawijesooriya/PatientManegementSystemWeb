@@ -2,7 +2,7 @@
 {
 	
 	width: 350px;
-	height: 400px;
+	height: 300px;
 	background-color:#f0ad4e;
 	padding: 10px;
 	border-width: 2px;
@@ -27,6 +27,12 @@ hr
 	width: 250px;
 
 }
+
+.box {
+	float: left;
+	margin-right: 2%
+	
+  }
 h5
 {
 	color:#011e37;
@@ -52,4 +58,15 @@ h5
 #buttons
 {
 	margin-left: 95px;margin-top: 30px
+}
+.specialDoc
+{
+	width: 350px;
+	height: 300px;
+	background-color:#577599;
+	padding: 10px;
+	border-width: 2px;
+	border: solid; 
+	border-radius: 5px;
+
 }

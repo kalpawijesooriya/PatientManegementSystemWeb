@@ -57,11 +57,13 @@
              </div>
          </div>
          <div class="panel panel-default">
-            <div class="panel-body"> 
-             <div>
-                <h4 class="title">
+            <div class="panel-body">
+               
+             <div >
+                <h4 class="title" >
                 <i class="fa fa-user-md" style="font-size:23px; margin-right:10px;"></i> Doctor Based Reports</h4>
              </div> 
+             <div class="box">
             <div class="monthlyDoc">
               <div >
                 <h5 class="title">
@@ -95,10 +97,45 @@
                     <button type="button" class="btn btn-primary">CSV</button>
                     <button type="button" class="btn btn-primary" id="monthlyDoctorbtn">PDF</button>
                   </div>
-              </div></br>  
-                
+              </div></br> </div> 
+               <!--Starts the specil countReport  --> 
+               <div class="box">
+             
+            <div class="specialDoc">
+              <div >
+                <h5 class="title">
+                <i class="glyphicon glyphicon-list-alt" style="font-size:18px; margin-right:10px;"></i>Appointment Count by Report</h5>
+              </div> 
+               <hr>
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label  for="specialityList">Speciality</label>
+                        <select  class="form-control" id="specialityList" style="width:250px;" ><option>All Specialities</option></select>
+                    </div>
+                        <div class="form-group">
+                            <label  for="start_date_doc">Start Date</label>
+                            <input type="date" name="start_date_doc" class="form-control datepicker hasDatepicker" id="start_date_doc" placeholder="Start Date" value="11-06-2018">
+                        </div> 
+    
+                        <div class="form-group">
+                            <label  for="end_date_doc">End Date</label>
+                            <input type="date" name="end_date_doc" class="form-control datepicker hasDatepicker" id="end_date_doc" placeholder="End Date" value="11-06-2018">
+                        </div>  
+                  
+
+        
+                </form>
+
+                  <div class="btn-group btn-group-sm" id="buttons">
+                    <button type="button" class="btn btn-primary">Copy</button>
+                    <button type="button" class="btn btn-primary">CSV</button>
+                    <button type="button" class="btn btn-primary" id="specialityDoctorbtn">PDF</button>
+                  </div>
+              </div></br> </div> 
+               <!--ends the specil countReport  -->
               
-             </div>
+       </div>
+       
          </div>
        </div>
     </div>

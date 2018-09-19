@@ -88,7 +88,7 @@
     <body>
         
  
-        <div class="containner" id="login_div">
+        <div class="containner" id="login_div" style=" display: none">
 
             <img src="../img/pf.png">
             <form>
@@ -413,31 +413,12 @@
                             <a onMouseOver="this.style.backgroundColor='#989FA7'" onMouseOut="this.style.backgroundColor='#5A6978'"  style="color: #fff;"><i class="fa fa-sitemap fa-fw" style="font-size:18px;"></i> Appointment<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a onMouseOver="this.style.backgroundColor='#989FA7'" onMouseOut="this.style.backgroundColor='#5A6978'">Second Level Item</a>
+                                    <a onMouseOver="this.style.backgroundColor='#989FA7'" onMouseOut="this.style.backgroundColor='#5A6978'"  href="login.php?newAppointment">New Appointment</a>
                                 </li>
                                 <li>
-                                    <a onMouseOver="this.style.backgroundColor='#989FA7'" onMouseOut="this.style.backgroundColor='#5A6978'"  >Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a onMouseOver="this.style.backgroundColor='#989FA7'" onMouseOut="this.style.backgroundColor='#5A6978'">Third Level <span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a onMouseOver="this.style.backgroundColor='#989FA7'" onMouseOut="this.style.backgroundColor='#5A6978'" >Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a onMouseOver="this.style.backgroundColor='#989FA7'" onMouseOut="this.style.backgroundColor='#5A6978'"  >Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a onMouseOver="this.style.backgroundColor='#989FA7'" onMouseOut="this.style.backgroundColor='#5A6978'"  >Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a onMouseOver="this.style.backgroundColor='#989FA7'" onMouseOut="this.style.backgroundColor='#5A6978'" >Third Level Item</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /.nav-third-level -->
+                                    <a onMouseOver="this.style.backgroundColor='#989FA7'" onMouseOut="this.style.backgroundColor='#5A6978'"  href="login.php?appoitmentList" >Appointment List</a>
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
                         </li>
                         <li>
                             <a onMouseOver="this.style.backgroundColor='#989FA7'" onMouseOut="this.style.backgroundColor='#5A6978'" style="color: #fff;" ><i class="fa fa-comments-o" style="font-size:18px;"></i> Messeges<span class="fa arrow"></span></a>
@@ -446,7 +427,10 @@
                                     <a onMouseOver="this.style.backgroundColor='#989FA7'" onMouseOut="this.style.backgroundColor='#5A6978'"  href="login.php?chat">Chat</a>
                                 </li>
                                 <li>
-                                    <a onMouseOver="this.style.backgroundColor='#989FA7'" onMouseOut="this.style.backgroundColor='#5A6978'"  href="login.php?testchat" ">Push Notifications</a>
+                                    <a onMouseOver="this.style.backgroundColor='#989FA7'" onMouseOut="this.style.backgroundColor='#5A6978'"  href="login.php?testchat" >Push Notifications</a>
+                                </li>
+                                <li>
+                                    <a onMouseOver="this.style.backgroundColor='#989FA7'" onMouseOut="this.style.backgroundColor='#5A6978'"  href="login.php?messages" >Messeges</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -546,6 +530,21 @@
      if(isset($_GET['Employeelist']))
     {   
          include 'bodyright/Employeelist.html';
+
+    }
+    if(isset($_GET['newAppointment']))
+    {   
+         include 'bodyright/newAppointment.html';
+
+    }
+    if(isset($_GET['appoitmentList']))
+    {   
+         include 'bodyright/appoitmentList.html';
+
+    }
+    if(isset($_GET['messages']))
+    {   
+         include 'bodyright/messages.html';
 
     }
     ?> 

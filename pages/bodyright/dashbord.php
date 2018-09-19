@@ -15,7 +15,7 @@
 <hr class="style1" style="width: 1200px; margin-left:10px;margin-top:10px;height: 4px;border-top: 1.2px solid #178449;" >
  <div class="container" style="margin-bottom: 20px">
  <div class="row" >
-        <div class="col-md-4 col-md-offset-3" ">
+        <div class="col-md-4 col-md-offset-3" >
             <form action="" class="search-form">
                 <div class="form-group has-feedback" style="margin-left:320px;width:100%">
                 <label for="search" class="sr-only">Search</label>
@@ -88,8 +88,8 @@
  var consultation_ref = firebase.database().ref('consultation/'); 
  var shedule_ref = firebase.database().ref('schedule/'); 
  var doctorRef = firebase.database().ref("User/doctor/");
-  
-$("#selectDoctor").select2();
+ var PatientRef = firebase.database().ref("User/patient/");  
+ var appRef=firebase.database().ref("Appointments");  
 
 var today = new Date();
 var dd = today.getDate();
@@ -111,48 +111,67 @@ today = mm + '/' + dd + '/' + yyyy;
     
 $('#selectDoctor').click(function()
 { 
-
+ 
   var val= $(this).val();
-
+  //
    fname = val.split(" ")[0];
    Lname = val.split(" ")[1]; 
 var dockey;
 
- doctorRef.orderByChild('Firstname').equalTo(fname.toString()).on("value", function(snapshot) {
-   console.log(snapshot.val());
-   snapshot.forEach(function(data) {
+ doctorRef.orderByChild('Firstname').equalTo(fname.toString()).on("value", function(snapshots) {
+   console.log(snapshots.val());
+   snapshots.forEach(function(data) {
     dockey= data.key;
-
- consultation_ref.orderByChild('DoctorID').equalTo(dockey).on("value", function(snapshot) {
+    
+   consultation_ref.orderByChild('DoctorID').equalTo(dockey).on("value", function(snapshot) {
    console.log(snapshot.val());
-    snapshot.forEach(function(data) {
+    snapshot.forEach(function(data1) {
    
-   var date=data.val().Date;
-  
+   var date=data1.val().Date;
+   var consulId  =data1.key;
    if(date==today)
    { 
-  var appointment_ref= consultation_ref.child(data.key).child("Appointment");
-  appointment_ref.on("child_added",snap =>{
    
-  var Number=snap.child("Number").val();
-  var Time=snap.child("Time").val();
-  var patientID=snap.child("patient_ID").val();
-  var PatientRef = firebase.database().ref("User/patient/"); 
-  var fname,lname,name;
-PatientRef.orderByChild('ID').equalTo(patientID).on("value", function(snapshot) {
-   console.log(snapshot.val());
-    snapshot.forEach(function(data) {
-     fname=data.val().FirstName;
-     lname=data.val().LastName;
-    PhoneNo=data.val().PhoneNo;
-     name=fname+" "+lname
-     $("#appointmentTable").append("<tr><td>"+Number+"</td><td>"+ name+"</td><td>"+PhoneNo+"</td><td>"+Time+"</td><td>"+Time+"</td><td><button>Remove</button></td></tr>");
-  });
-});
+  var appointment_ref= consultation_ref.child(data1.key).child("Appointments");
+  appointment_ref.on("child_added",snap =>{
+    var patientID=snap.key;
+     var num;
+     var Time;
   
+
  
 
+  var fname,lname,name,PhoneNo;
+ 
+PatientRef.orderByChild('ID').equalTo(patientID).on("value", function(snapsho) {
+   console.log(snapsho.val());
+   snapsho.forEach(function(data) {
+                
+                 fname=data.child("FirstName").val();
+                 lname=data.child("LastName").val();
+                 PhoneNo=data.child("PhoneNo").val(); 
+                 name=fname+" "+ lname
+                 appRef.orderByChild('Patient_ID').equalTo(patientID).on("value", function(snaps) {
+   console.log(snaps.val());
+   snaps.forEach(function(datas) { 
+   var ConsultationID=datas.child("ConsultationID").val();
+       if(ConsultationID==data1.key){
+         Time=datas.child("Time").val();
+         num=datas.child("Number").val();
+         $("#appointmentTable").append("<tr><td>"+num+"</td><td>"+ name+"</td><td>"+PhoneNo+"</td><td>"+Time+"</td><td>"+Time+"</td><td></td></tr>"); 
+       }
+        });
+     });
+                
+                 });
+               
+   
+ 
 });
+
+ 
+
+  });
  }
    
      

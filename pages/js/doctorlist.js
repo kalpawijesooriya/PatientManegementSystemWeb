@@ -1,5 +1,6 @@
 //deifle firebase
 
+var deleteKey;
  var config = {
     apiKey: "AIzaSyDj55UNRaxXD06-MkQxKa2Rc_CFzQWFCwo",
     authDomain: "patient-management-syste-9758b.firebaseapp.com",
@@ -43,9 +44,10 @@
 
 
 //$('#example').append("<tr><td>"+title+"</td><td>"+fname+"</td><td>"+lname+"</td><td>"+hospital+"</td><td>"+speciality+"</td><td>"+"Rs."+fee+".00"+"</td><td>"+mobile+"</td><td>"+address+"</td></tr>");
-settable(title,fname,lname,hospital,speciality,fee,mobile,address,emargancymobile);
+settable(title,fname,lname,hospital,speciality,fee,mobile,address,emargancymobile,snap.key);
  });
 
+ 
 
  
  
@@ -53,8 +55,9 @@ settable(title,fname,lname,hospital,speciality,fee,mobile,address,emargancymobil
 
  
     // Automatically add a first row of data
-function settable(title,fname,lname,hospital,speciality,fee,mobile,address,emargancymobile)
-{
+function settable(title,fname,lname,hospital,speciality,fee,mobile,address,emargancymobile,key)
+{ 
+
         t.row.add( [
             title,
             fname,
@@ -64,8 +67,36 @@ function settable(title,fname,lname,hospital,speciality,fee,mobile,address,emarg
            "Rs."+ fee+".00",
             mobile,
             address,
-            emargancymobile
+            emargancymobile,
+            '<td><button class="btn btn-danger"class="delete" style=margin-right:10px; id="'+key+'" onclick="DeleteFunction(this.id)">Delete</button><button class="btn btn-info" id="'+key+'" onclick=EditFuction(this.id)>Edit<Button</td>'
+           
+
+            
         ] ).draw( false );
       
+       
 
-}         
+}   
+
+function DeleteFunction(key)
+{
+    deleteKey=key;
+   $("#deleteAlert").show('fade'); 
+    // if (confirm('Do you want to Delete this Doctor records')) {
+    //     
+    // }else{//do nothing
+    // }
+  
+}
+$("#linkClose").click(function(){
+    $("#deleteAlert").hide("fade");
+}); 
+
+function EditFuction (key)
+{
+    alert(key);
+}
+$("#deleteConfi").click(function(){
+    rootRef.child(deleteKey).remove();
+    $("#deleteAlert").hide("fade");
+}); 

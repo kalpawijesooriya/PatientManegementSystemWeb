@@ -5,7 +5,7 @@ var Doctorfee
     docRef.on("child_added",snap =>{
     var docfname=snap.child("Firstname").val();
     var doclname=snap.child("Lastname").val();
-  
+    var Spciality=snap.child("Spciality").val();
    var doctorname=docfname+" "+doclname;
    
     $("#doctorList").val("14"); 
@@ -13,7 +13,16 @@ var Doctorfee
     var c = document.createElement("option");
     c.text = doctorname;
     x.options.add(c, 1);
+
+     //FILL SPECIALITY LIST
+     $("#specialityList").val("14"); 
+     var y = document.getElementById("specialityList");
+     var b = document.createElement("option");
+     b.text = Spciality;
+     y.options.add(b, 1);
     });
+   
+  
     //click on PDF btn
     var slectedslectedDoctor; //variable for hold selected doctor name
     $( "#monthlyDoctorbtn" ).click(function() {
@@ -131,3 +140,5 @@ var Doctorfee
       createMothlyDocReport(patientNames,dates,count,doctorName)
     }, delayInMilliseconds);
      }
+
+     specialityDoctorbtn

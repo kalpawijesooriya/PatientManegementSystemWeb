@@ -16,6 +16,9 @@
 	if(!isset($_GET['patientlist'])){
 	if(!isset($_GET['Employeelist'])){
 	if(!isset($_GET['Add_Employee'])){
+	if(!isset($_GET['messages'])){
+	if(!isset($_GET['newAppointment'])){
+	if(!isset($_GET['appoitmentList'])){
 ?>
 	<div id="bodyright" style="background-color: #fff ;" >
 		<?php
@@ -37,4 +40,4 @@
 
 	 ?>
 	</div>
-<?php } } }}}}}}}}}}}}} ?>
+<?php } } }}}}}}}}}}}}}}}} ?>
