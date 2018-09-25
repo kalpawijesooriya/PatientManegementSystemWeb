@@ -1,3 +1,67 @@
-<div class="messages_div">
-
+<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+<div class="messages_div" style="">
+        <!DOCTYPE html>
+        <html>
+        <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/messages.css">
+        
+        </head>     
+        
+        <body>
+        <div class="container">
+                <div class="row">
+                    
+                    <div class="col-md-4">
+                        <form  autocomplete="off" action="bodyright/array.php" method="post">
+                        <div id="contact-form" class="form-container" data-form-container>
+                        <div class="row">
+                            <div class="form-title">
+                                <span>Book Doctor</span>
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <div class="row"><p style="margin-bottom:-100px;margin-left:-80%">Patient Name</p>
+                                <span class="req-input" style="margin-left:30%" >
+                                    <span class="input-status" data-toggle="tooltip" data-placement="top" title="Input Your First and Last Name."> </span>
+                                    <input id="myInput" type="text" name="myCountry" placeholder="Name">
+                                </span>
+                            </div>
+                            <div class="row">
+                                <span class="req-input">
+                                    <span class="input-status" data-toggle="tooltip" data-placement="top" title="Please Input Your Email."> </span>
+                                    <input type="email" placeholder="Email" style="font-size:15px" id="emailtxt">
+                                </span>
+                            </div>
+                            <div class="row">
+                                <span class="req-input">
+                                    <span class="input-status" data-toggle="tooltip" data-placement="top" title="Please Input Your Phone Number."> </span>
+                                    <input type="tel" placeholder="Phone Number" id="mobile" name="mobile">
+                                </span>
+                            </div>
+                            <div class="row">
+                                <span class="req-input message-box">
+                                    <span class="input-status" data-toggle="tooltip" data-placement="top" title="Please Include a Message."> </span>
+                                    <textarea type="textarea" data-min-length="10" placeholder="Message" name="message"></textarea>
+                            </div>
+                            <div class="row submit-row">
+                                <input type="submit" class="btn btn-block submit-form">
+                            </div>
+                        </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+         
+        <script src="js/newAppointment.js">
+       
+        </script>
+        
+        </body>
+        </html>
+        
 </div>
+
+
+
+

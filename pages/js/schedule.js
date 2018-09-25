@@ -5,7 +5,6 @@ var doctoekey1
 var octorID
 var roomNo="room1";
 
-
 function  add_schedule()
 {
 	
