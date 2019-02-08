@@ -9,11 +9,10 @@
         </head>     
         
         <body>
-        <div class="container">
-                <div class="row">
+     <h3 style="color:grey;margin-left:3%">New Appointment</h3>
                     
-                    <div class="col-md-4">
-                        <form  autocomplete="off" action="bodyright/array.php" method="post">
+                  
+                        <form >
                         <div id="contact-form" class="form-container" data-form-container>
                         <div class="row">
                             <div class="form-title">
@@ -21,10 +20,24 @@
                             </div>
                         </div>
                         <div class="input-container">
-                            <div class="row"><p style="margin-bottom:-100px;margin-left:-80%">Patient Name</p>
-                                <span class="req-input" style="margin-left:30%" >
+                            <div class="row">
+                                <span class="req-input" >
                                     <span class="input-status" data-toggle="tooltip" data-placement="top" title="Input Your First and Last Name."> </span>
                                     <input id="myInput" type="text" name="myCountry" placeholder="Name">
+                                </span>
+                            </div>
+                            <div class="row">
+                                <span class="req-input">
+                                    <span class="input-status" data-toggle="tooltip" data-placement="top" title="Please Input Your Phone Number."> </span>
+
+                                    <select class="form-control"  style="width:95.6%;height:100%;" id="doctor_name"><option>--Select Doctor--</option> </select>
+                                </span>
+                            </div>
+                            <div class="row">
+                                <span class="req-input">
+                                    <span class="input-status" data-toggle="tooltip" data-placement="top" title="Please Input Your Phone Number."> </span>
+
+                                    <select class="form-control"  style="width:95.6%;height:100%;" id="appointment"><option>--Select appointment--</option> </select>
                                 </span>
                             </div>
                             <div class="row">
@@ -36,22 +49,28 @@
                             <div class="row">
                                 <span class="req-input">
                                     <span class="input-status" data-toggle="tooltip" data-placement="top" title="Please Input Your Phone Number."> </span>
-                                    <input type="tel" placeholder="Phone Number" id="mobile" name="mobile">
+                                    <input type="tel" placeholder="Appointment Number" id="mobile" name="mobile">
                                 </span>
                             </div>
+                           
                             <div class="row">
-                                <span class="req-input message-box">
-                                    <span class="input-status" data-toggle="tooltip" data-placement="top" title="Please Include a Message."> </span>
-                                    <textarea type="textarea" data-min-length="10" placeholder="Message" name="message"></textarea>
+                                <span class="req-input">
+                                    <span class="input-status" data-toggle="tooltip" data-placement="top" title="Please Input Your Phone Number."> </span>
+                                    <input type="tel" placeholder="Phone Number" id="" name="mobile">
+                                </span>
                             </div>
-                            <div class="row submit-row">
-                                <input type="submit" class="btn btn-block submit-form">
-                            </div>
+                           
+                           
                         </div>
                         </div>
                         </form>
-                    </div>
-                </div>
+                        <div class="input-container">
+                            <div class="row">
+                                <div class="row submit-row" style="width:20%;margin-left: 35%">
+                                    <button  class="btn btn-block submit-form" id="addApointment">Confirm</button>
+                                </div>
+                            </div>
+                        </div>    
          
         <script src="js/newAppointment.js">
        

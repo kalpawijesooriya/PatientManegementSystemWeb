@@ -8,19 +8,53 @@ var config = {
   };
   firebase.initializeApp(config);
   var patientArry=[];
+  var patientIdarry=[];
   var Mobiles=[];
   var Emails=[];
- var patientRef = firebase.database().ref("User/patient");
- patientRef.on("child_added",snap =>{
-    var fname=snap.child("FirstName").val();
-    var lname=snap.child("LastName").val();
-    var PhoneNo=snap.child("PhoneNo").val();
-    var email=snap.child("Email").val();
-    var fullName= fname+" "+lname;
-    patientArry.push(fullName);
-    Mobiles.push(PhoneNo);
-    Emails.push(email);
- });
+  var doctor=[];
+  var appointmentarry=[];
+  var numberarry=[];
+  var doctorIDarry=[];
+  var sheduleIDarry=[];
+  var consulearry=[];
+  var number;
+  $( document ).ready(function() {
+    var patientRef = firebase.database().ref("User/patient");
+    patientRef.on("child_added",snap =>{
+       var fname=snap.child("FirstName").val();
+       var lname=snap.child("LastName").val();
+       var PhoneNo=snap.child("PhoneNo").val();
+       var email=snap.child("Email").val();
+       var pationID=snap.child("ID").val();
+       var fullName= fname+" "+lname;
+       patientIdarry.push(pationID);
+       patientArry.push(fullName);
+       Mobiles.push(PhoneNo);
+       Emails.push(email);
+    });
+   var doctorRef = firebase.database().ref("User/doctor/");
+   doctorRef.on("child_added",snap =>{
+   var docfname=snap.child("Firstname").val();
+   var doclname=snap.child("Lastname").val();
+   var Spciality=snap.child("Spciality").val();
+   var DoctorID=snap.child("DoctorID").val();
+   
+   var doctorname= docfname+" "+doclname+"-"+Spciality;
+  doctor.push(doctorname);
+  doctorIDarry.push(DoctorID)
+
+   
+   $("#doctor_name").val("14"); 
+   var x = document.getElementById("doctor_name");
+   var c = document.createElement("option");
+   c.text = doctorname;
+   x.options.add(c, 1);
+   
+   
+   });
+   
+});
+
 
 function autocomplete(inp, arr) {
     /*the autocomplete function takes two arguments,
@@ -129,7 +163,121 @@ function autocomplete(inp, arr) {
              var a = patientArry.indexOf($("#myInput").val());
              var mobileNo=Mobiles[a];
              var email=Emails[a];
-             document.getElementById("mobile").value=mobileNo;
+            
              document.getElementById("emailtxt").value=email;
         },200);
 });
+$("#doctor_name").change(function(){
+  $('#appointment')
+  .find('option')
+  .remove();
+  setTimeout(function() {
+   var docitem =  doctor.indexOf($("#doctor_name").val());
+   var doctorID=  doctorIDarry[docitem];
+   var  ref = firebase.database().ref("consultation");
+
+   ref.orderByChild("DoctorID").equalTo(doctorID).on("child_added", function(snapshot) {
+    var date=snapshot.child("Date").val();
+    date=date.split("/")
+    var dd=date[1];
+    var mm=date[0];
+    var yy=date[2];
+    var formatedday=mm+" "+dd+" "+yy
+    var datemills=parseInt(Date.parse(formatedday),10);
+    var today = new Date();
+
+    todaydd=today.getDate();
+    todaymm=today.getMonth()+1;
+    todayyy=today.getFullYear();
+    var todaymillis=parseInt(Date.parse(todaymm+" "+ todaydd+" "+todayyy),10);
+   
+    if(todaymillis<= datemills){
+    var  ScheduleID=snapshot.child("ScheduleID").val();
+   
+    var  shedulref = firebase.database().ref("schedule").child(ScheduleID);
+    var day;
+    var EndTime;
+    var StartTime;
+    var Room;
+    shedulref.on("value",snapshots =>{
+      day=snapshots.child("Day").val();
+      EndTime=snapshots.child("EndTime").val();
+      StartTime=snapshots.child("StartTime").val();
+      Room=snapshots.child("Room").val();
+    });
+    
+    var AppoimentNo=parseInt(snapshot.child("LastAppoimentNo").val(), 10)+1;
+    
+  setTimeout(function() {
+    var apoointment =formatedday+" of "+ day+" from - "+ StartTime+" to - "+ EndTime;
+    appointmentarry.push(apoointment);
+    numberarry.push(AppoimentNo);
+    sheduleIDarry.push(ScheduleID);
+    consulearry.push(snapshot.key)
+    $("#appointment").val("14"); 
+    var x = document.getElementById("appointment");
+    var c = document.createElement("option");
+    c.text = apoointment;
+    x.options.add(c, 1);
+    console.log(snapshot.key);
+ },500);
+   
+    }
+  });
+   
+},200);
+});
+
+$("#appointment").click(function(){
+ 
+  setTimeout(function() {
+   var app =  appointmentarry.indexOf($("#appointment").val());
+  number=numberarry[app];
+   
+  
+   document.getElementById("mobile").value= "No-"+number;
+},200);
+});
+$("#addApointment").click(function(){
+var pationID= patientIdarry[patientArry.indexOf($("#myInput").val())] ;
+var doctorID=doctorIDarry[doctor.indexOf($("#doctor_name").val())];
+var sheduleID=sheduleIDarry[appointmentarry.indexOf($("#appointment").val())];
+var consulID=consulearry[appointmentarry.indexOf($("#appointment").val())];
+var today = new Date();
+var Time;
+    todaydd=today.getDate();
+    todaymm=today.getMonth()+1;
+    todayyy=today.getFullYear();
+   today=  todaymm+"-"+todaydd+"-"+todayyy
+var day,EndTime,StartTime, Room;
+var  ref = firebase.database().ref("schedule").child(sheduleID);
+  ref.on("value",snapshots =>{
+  day=snapshots.child("Day").val();
+  EndTime=snapshots.child("EndTime").val();
+  StartTime=snapshots.child("StartTime").val();
+  Room=snapshots.child("Room").val();
+  patientNumber=snapshots.child("patientNumber").val();
+  setTimeout(function() {
+    Time= parseInt(EndTime)- parseInt(StartTime);
+   Time=parseInt(StartTime)+ Time/parseInt(patientNumber);
+   var  ref = firebase.database().ref("Appointments").push();
+   ref.child("ConsultationID").set(consulID);
+   ref.child("Date").set(today);
+   ref.child("Number").set(number.toString());
+   ref.child("Patient_ID").set( pationID);
+   ref.child("patient_ID").set( pationID);
+   ref.child("Time").set(Time.toString());
+   var  consulref = firebase.database().ref("consultation").child(consulID);
+   consulref.child("LastAppoimentNo").set (number.toString());
+
+ },500);
+});
+
+   
+
+});
+
+
+
+
+

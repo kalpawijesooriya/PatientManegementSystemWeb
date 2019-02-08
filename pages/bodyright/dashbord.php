@@ -158,7 +158,7 @@ PatientRef.orderByChild('ID').equalTo(patientID).on("value", function(snapsho) {
        if(ConsultationID==data1.key){
          Time=datas.child("Time").val();
          num=datas.child("Number").val();
-         $("#appointmentTable").append("<tr><td>"+num+"</td><td>"+ name+"</td><td>"+PhoneNo+"</td><td>"+Time+"</td><td>"+Time+"</td><td></td></tr>"); 
+         $("#appointmentTable").append("<tr><td>"+num+"</td><td>"+ name+"</td><td>"+PhoneNo+"</td><td>"+Time+"</td><td>"+"YES"+"</td><td></td></tr>"); 
        }
         });
      });

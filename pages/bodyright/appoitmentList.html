@@ -1,3 +1,76 @@
-<div class="messages_div">
+<link rel="stylesheet"  type="text/css"  href="bodyright/common.css">
+<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.17/css/jquery.dataTables.min.css">  
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css">  
+
+<div class="div_doctor">
+<div class="panel panel-default">
+  <div class="panel-heading">
+Doctor List</div></div>
+     <div class="panel-body"> 
+
+
+<div >
+  <div class="alert alert-danger" role="alert" id="deleteAlert" style="z-index: 1; display: none;  position: fixed; ">
+      <h3 class="alert-heading">Confirm!</h3>
+      <p>Are You Sure You want to delete this Doctor records<p>
+       
+      <hr>
+      <p class="mb-0">With this allthe records of this doctor will remove from the database</p>
+      <div class="buttons">
+        <button id="linkClose" class="btn btn-success">Cancel</button>
+        <button class="btn btn-danger" style="margin-left:20px" id="deleteConfi">Confirm</button>
+      </div>
+    </div>
+    <table class="table table-striped table-bordered table-hover" id="example">
+<thead>
+  <tr>
+    <td  class="th">Patient Name</td>
+    <td  class="th">Doctor Name</td>
+    <td  class="th">Booking Date</td>
+    <td  class="th" >Appointment Date</td>
+    <td  class="th">Number</td>
+    <td  class="th">PaymentStstus</td>
+   
+   
+    <td  class="th" style="width: 100px">Action</td>    
+ 
+  </tr>
+</thead>
+
+</table>
 
 </div>
+</div>
+</div>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+<script type="text/javascript" src="js/jspdf.js"></script>
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.17/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.flash.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
+<script type="text/javascript" src="js/apoinmentlist.js"></script>
+<style>
+.close
+{
+margin-left:50px;
+margin-top: 5px;
+}
+
+.buttons
+{
+margin-top: 10px;
+margin-left: 120px
+}
+</style>
+
+

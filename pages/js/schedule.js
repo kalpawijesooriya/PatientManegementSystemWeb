@@ -15,7 +15,8 @@ function  add_schedule()
   var startTime    = document.getElementById('startTime').value;
   var endTime = document.getElementById('endTime').value;
   var patientNumber = document.getElementById('patientNumber').value;
-
+ endTime= endTime.split(":");
+ startTime= startTime.split(":");
   //var doctorID = firebase.database().ref("User/doctor/");
   
   var fname = doctor_name.split(" ", 1);
@@ -39,8 +40,8 @@ function  add_schedule()
 
   
   scheduleRef.child("Day").set(day);
-  scheduleRef.child("StartTime").set(startTime);
-  scheduleRef.child("EndTime").set(endTime);
+  scheduleRef.child("StartTime").set(endTime[0]+endTime[1]);
+  scheduleRef.child("EndTime").set(startTime[0]+startTime[1]);
   scheduleRef.child("patientNumber").set(patientNumber);
   scheduleRef.child("Room").set(roomNo);
   alert("New Shedule Added")

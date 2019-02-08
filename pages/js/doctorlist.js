@@ -21,6 +21,7 @@ var deleteKey;
             'copy', 'csv', 'excel', 'pdf', 'print'
         ]
     } );
+
   rootRef.on("child_added",snap =>{
   var fname=snap.child("Firstname").val();
   var lname=snap.child("Lastname").val();
@@ -41,19 +42,9 @@ var deleteKey;
   var nic=snap.child("NICNo").val();
   var title=snap.child("Title").val();
 
-
-
 //$('#example').append("<tr><td>"+title+"</td><td>"+fname+"</td><td>"+lname+"</td><td>"+hospital+"</td><td>"+speciality+"</td><td>"+"Rs."+fee+".00"+"</td><td>"+mobile+"</td><td>"+address+"</td></tr>");
 settable(title,fname,lname,hospital,speciality,fee,mobile,address,emargancymobile,snap.key);
  });
-
- 
-
- 
- 
-
-
- 
     // Automatically add a first row of data
 function settable(title,fname,lname,hospital,speciality,fee,mobile,address,emargancymobile,key)
 { 
@@ -69,13 +60,8 @@ function settable(title,fname,lname,hospital,speciality,fee,mobile,address,emarg
             address,
             emargancymobile,
             '<td><button class="btn btn-danger"class="delete" style=margin-right:10px; id="'+key+'" onclick="DeleteFunction(this.id)">Delete</button><button class="btn btn-info" id="'+key+'" onclick=EditFuction(this.id)>Edit<Button</td>'
-           
-
             
         ] ).draw( false );
-      
-       
-
 }   
 
 function DeleteFunction(key)
